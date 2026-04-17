@@ -14,3 +14,28 @@ document.addEventListener('click', function(e) {
     hamburgerBtn.setAttribute('aria-expanded', 'false');
   }
 });
+
+const searchBtn   = document.getElementById('searchBtn');
+const searchInput = document.getElementById('searchInput');
+const searchMsg   = document.getElementById('searchMsg');
+
+function handleSearch() {
+  const query = searchInput.value.trim();
+
+  if (!query) {
+    searchMsg.textContent = 'Skriv ett sökord för att hitta events.';
+    searchMsg.style.color = '#e87447';
+  } else {
+    searchMsg.textContent = `Söker efter "${query}"… Tar dig till events-sidan!`;
+    searchMsg.style.color = 'var(--accent)';
+    setTimeout(() => window.location.href = 'events.html', 1200);
+  }
+}
+
+searchBtn.addEventListener('click', handleSearch);
+
+searchInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    handleSearch();
+  }
+});

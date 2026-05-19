@@ -28,3 +28,18 @@
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
+
+.events-alt { background: var(--surface); }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.event-card { animation: fadeIn 0.5s ease both; }
+.events-grid li:nth-child(1) { animation-delay: 0.1s; }
+.events-grid li:nth-child(2) { animation-delay: 0.2s; }
+.events-grid li:nth-child(3) { animation-delay: 0.3s; }
+
+@media (max-width: 900px) { .events-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .events-grid { grid-template-columns: 1fr; } }
